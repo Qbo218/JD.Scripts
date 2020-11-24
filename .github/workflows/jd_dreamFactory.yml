@@ -1,13 +1,10 @@
-name: 京小超
+name: 京喜工厂
 
 on:
   workflow_dispatch:
   schedule:
     - cron: '15 * * * *'
-  # watch:
-  #   types: started
-  # repository_dispatch:
-  #   types: superMarket
+
 jobs:
   build:
     runs-on: ubuntu-latest
