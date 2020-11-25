@@ -6,7 +6,7 @@ name: 京喜工厂
 on:
     workflow_dispatch:
     schedule:
-        - cron: "15 * * * *"
+        - cron: "19 16 * * *"
     watch:
         types: [started]
     repository_dispatch:
@@ -27,7 +27,7 @@ jobs:
                   npm install
             - name: "运行 【京喜工厂】"
               run: |
-                  node actions.js
+                  node onlyOneExecute.js
               env:
                   JD_COOKIE: ${{ secrets.JD_COOKIE }}
                   JD_DEBUG: ${{ secrets.JD_DEBUG }}
