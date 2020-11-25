@@ -8,17 +8,17 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/lxk0301/jd_scripts.git"
+        "url": "git+https://github.com/Qbo218/JD.Scripts.git"
     },
     "keywords": [
         "sign"
     ],
-    "author": "lxk0301",
+    "author": "Qbo218",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/lxk0301/jd_scripts.git"
+        "url": "https://github.com/Qbo218/JD.Scripts/issues"
     },
-    "homepage": "https://github.com/lxk0301/jd_scripts.git#readme",
+    "homepage": "https://github.com/Qbo218/JD.Scripts#readme",
     "dependencies": {
         "download": "^8.0.0",
         "request": "^2.88.2",
