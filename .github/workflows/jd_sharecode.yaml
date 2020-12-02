@@ -1,0 +1,32 @@
+name: 京东互助码提交
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: 9 1,2,23 1,10,20 * *
+  watch:
+    types: started
+jobs:
+  run-it:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    name: 提交互助码
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@master
+      - name: 提交京东农场互助码
+        run: curl -i 'http://api.turinglabs.net/api/v1/jd/farm/create/f2af447d403b4af39d0ee2025d28bd24'
+      - name: 提交京东萌宠互助码
+        run: curl -i 'http://api.turinglabs.net/api/v1/jd/pet/create/MTAxODc2NTE0NzAwMDAwMDAyOTU4MDMxNw=='
+      - name: 提交种豆得豆互助码1
+        run: curl -i 'http://api.turinglabs.net/api/v1/jd/bean/create/2xvwgi52mbfeuptudx5zd3xpvi'
+      - name: 提交种豆得豆互助码2
+        run: curl -i 'http://api.turinglabs.net/api/v1/jd/bean/create/fulqzt2foabadqj464zq6mwdee'
+      - name: 提交东东工厂互助码1
+        run: curl -i 'http://api.turinglabs.net/api/v1/jd/ddfactory/create/P04z54XCjVWnYaS5nJdWiKhgC0'
+      - name: 提交东东工厂互助码2
+        run: curl -i 'http://api.turinglabs.net/api/v1/jd/ddfactory/create/P04z54XCjVWnYaS5lRaV2L51Q'      
+      - name: 提交京喜工厂互助码
+        run: curl -i 'http://api.turinglabs.net/api/v1/jd/jxfactory/create/KPJJIVyyFlFIr0OP9YQo3Q=='
