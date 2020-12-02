@@ -3,7 +3,7 @@ name: 京东互助码提交
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: 9 1,2,23 1,10,20 * *
   watch:
@@ -14,8 +14,8 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
     name: 京东互助码提交
     steps:
-      - name: Checkout master
-        uses: actions/checkout@master
+      - name: Checkout main
+        uses: actions/checkout@main
       - name: 提交京东农场互助码
         run: curl -i 'http://api.turinglabs.net/api/v1/jd/farm/create/f2af447d403b4af39d0ee2025d28bd24'
       - name: 提交京东萌宠互助码
