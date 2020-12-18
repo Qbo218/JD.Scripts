@@ -9,6 +9,8 @@ const shareCodes = [
   },
   {
     zd: $.getdata("zd_shareCode2") || "fulqzt2foabadqj464zq6mwdee",
+    nc: $.getdata("nc_shareCode2") || "f26c001658024df08a4fd5373ecd89a1",
+    mc: $.getdata("mc_shareCode2") || "MTE1NDQ5MzYwMDAwMDAwMzQwNDI5NzE=",
     ddgc: $.getdata("dd_shareCode2") || "P04z54XCjVWnYaS5lRaV2L51Q",
   },
 ];
