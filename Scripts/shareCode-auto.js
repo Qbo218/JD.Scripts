@@ -6,12 +6,16 @@ const shareCodes = [
     mc: $.getdata("mc_shareCode1") || "MTAxODc2NTE0NzAwMDAwMDAyOTU4MDMxNw==",
     ddgc: $.getdata("dd_shareCode1") || "P04z54XCjVWnYaS5nJdWiKhgC0",
     jxgc: $.getdata("jx_shareCode1") || "KPJJIVyyFlFIr0OP9YQo3Q==",
+    jxzz: $.getdata("jx_zzshareCode1") || "S-aghAkdEpA",
+    crazyjoy: $.getdata("jd_joyshareCode1") || "92jXGoAUQAI=",
   },
   {
     zd: $.getdata("zd_shareCode2") || "fulqzt2foabadqj464zq6mwdee",
     nc: $.getdata("nc_shareCode2") || "f26c001658024df08a4fd5373ecd89a1",
     mc: $.getdata("mc_shareCode2") || "MTE1NDQ5MzYwMDAwMDAwMzQwNDI5NzE=",
     ddgc: $.getdata("dd_shareCode2") || "P04z54XCjVWnYaS5lRaV2L51Q",
+    jxzz: $.getdata("jx_zzshareCode1") || "S368sQh8R",
+    crazyjoy: $.getdata("jd_joyshareCode1") || "gaOTcyjPb1s=",
   },
 ];
 $.result = [];
@@ -20,7 +24,7 @@ $.random = Math.floor(Math.random() * 60);
 !(async () => {
   console.log(`\n此脚本延迟${$.random}秒执行\n`);
   for (let i = 0; i < shareCodes.length; i++) {
-    const { zd, nc, mc, ddgc, jxgc } = shareCodes[i];
+    const { zd, nc, mc, ddgc, jxgc, jxzz, crazyjoy } = shareCodes[i];
     await $.wait($.random);
     zd &&
       (await create(
@@ -51,6 +55,18 @@ $.random = Math.floor(Math.random() * 60);
         `http://api.turinglabs.net/api/v1/jd/jxfactory/create/${jxgc}/`,
         "京喜工厂"
       ));
+    await $.wait($.random);
+    jxzz &&
+      (await create(
+        `https://code.chiang.fun/api/v1/jd/jdzz/create/${jxzz}/`,
+        "京喜赚赚"
+      ));
+    await $.wait($.random);
+    crazyjoy &&
+      (await create(
+        `https://code.chiang.fun/api/v1/jd/jdcrazyjoy/create/${crazyjoy}/`,
+        "疯狂的joy"
+      ));
   }
   await showMsg();
 })()
@@ -70,8 +86,10 @@ function create(path, name) {
         const needAgain = await checkWhetherNeedAgain(resp, create, path, name);
         if (needAgain) return;
         const { message } = JSON.parse(data);
-        $.log(`\n${message}\n${data}`);
-        $.result.push(`${name}： ${message}`);
+        const { msg } = JSON.parse(data);
+        let notifyMessage = message || msg ;
+        $.log(`\n${notifyMessage}\n${data}`);
+        $.result.push(`${name}： ${notifyMessage}`);
       } catch (e) {
         $.logErr(e, resp);
       } finally {
