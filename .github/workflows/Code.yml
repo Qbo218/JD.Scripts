@@ -4,7 +4,7 @@ name: 码子
 on:
     workflow_dispatch:
     schedule:
-      - cron: '8 18 1,8,16,24 *'
+      - cron: '8 16 1,8,16,24 * *'
     watch:
         types: [started]
     repository_dispatch:
