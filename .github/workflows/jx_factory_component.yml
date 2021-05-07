@@ -38,3 +38,4 @@ jobs:
                   DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
                   DO_NOT_FORK: ${{ secrets.DO_NOT_FORK }}
                   SYNCURL: https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_factory_component.js
+
